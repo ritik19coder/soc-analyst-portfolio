@@ -35,3 +35,16 @@ All labs, scans and investigations in this repository are performed only on lega
 ## Current Goal
 
 My current goal is to build visible proof of practical cybersecurity learning for entry-level SOC Analyst roles.
+
+## Progress Log
+
+### Day 1 – Portfolio Setup
+- Created SOC Analyst portfolio repository
+- Added folder structure
+- Added legal disclaimer and license
+
+### Day 2 – Networking Basics
+- Studied IP address, MAC address, DNS, DHCP, TCP, UDP, HTTP and HTTPS
+- Learned common SOC-related ports
+- Practised basic networking commands
+- Created networking notes for SOC Analyst Level 1 preparation
