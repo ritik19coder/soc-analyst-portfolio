@@ -8,5 +8,10 @@ This folder will contain screenshots from practical tasks completed during my 30
 - Ping command output
 - DNS lookup command output
 - Traceroute or tracert command output
+- Traceroute Info output
+
+## Day 3 Planned Scrrenshots
+- Netstat output
+- Nmap-scan output
 
 Screenshots will be added as evidence of practical learning.

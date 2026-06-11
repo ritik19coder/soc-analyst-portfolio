@@ -48,3 +48,9 @@ My current goal is to build visible proof of practical cybersecurity learning fo
 - Learned common SOC-related ports
 - Practised basic networking commands
 - Created networking notes for SOC Analyst Level 1 preparation
+
+### Day 3 – Networking Command Practice
+- Practised `ipconfig`, `ping`, `nslookup`, `tracert` and `netstat -ano`
+- Performed a safe Nmap service scan on `scanme.nmap.org`
+- Added screenshots as practical evidence
+- Created SOC-focused networking command notes
