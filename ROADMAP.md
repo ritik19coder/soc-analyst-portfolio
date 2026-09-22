@@ -52,4 +52,4 @@ This roadmap tracks the practical work behind the portfolio. A task is marked co
 
 ## Current Task
 
-Task 1 is complete locally and awaiting approval for publication. Task 2 will not begin until the Task 1 update has been reviewed and approved.
+Task 1 is complete and published on the main branch. Task 2 is next and will begin only after approval.
