@@ -1,56 +1,82 @@
 # SOC Analyst Portfolio
 
-This repository contains my 30-day cybersecurity job skills preparation work for SOC Analyst Level 1 and Junior Cybersecurity Analyst roles.
+Practical cybersecurity work by **Ritik Chauhan**, focused on SOC Analyst Level 1 and Junior Cybersecurity Analyst roles.
 
-## Objective
+## Overview
 
-The aim of this portfolio is to build practical cybersecurity skills using free resources and document my learning through notes, screenshots, mini reports and investigation write-ups.
+This repository documents my hands-on development in networking, operating-system security, alert investigation, phishing analysis, vulnerability assessment and incident response. Each section is designed to show evidence of the work completed, the method used, the result and the lessons learned.
 
-## Focus Areas
+The portfolio is being developed one task at a time. Planned work is labelled clearly and is not presented as completed experience.
 
-- Networking basics for SOC analysts
-- Linux and Windows security basics
-- SIEM and log investigation
-- Phishing email analysis
-- Vulnerability assessment basics
-- Incident response process
-- Interview preparation and reporting skills
+## Current Evidence
+
+| Area | Evidence | Status |
+| --- | --- | --- |
+| Networking fundamentals | [Networking basics for SOC analysts](01-networking/networking-basics-for-soc.md) | Completed |
+| Networking commands | [Networking command practice](01-networking/networking-command-practice.md) | Completed - Nmap evidence planned separately |
+| Linux and Windows security | [Section overview](02-linux-windows/README.md) | Planned |
+| SIEM investigation | [Section overview](03-siem-investigation/README.md) | Planned |
+| Phishing analysis | [Section overview](04-phishing-analysis/README.md) | Planned |
+| Vulnerability assessment | [Section overview](05-vulnerability-assessment/README.md) | Planned |
+| Incident response | [Section overview](06-incident-response/README.md) | Planned |
+
+## Skills Being Developed
+
+- TCP/IP, DNS, common ports and network troubleshooting
+- Windows and Linux investigation commands
+- Packet and log analysis
+- Alert triage and evidence collection
+- Phishing investigation
+- Vulnerability assessment in authorised labs
+- Incident documentation and escalation
+- Git, GitHub and technical reporting
 
 ## Repository Structure
 
+```text
 soc-analyst-portfolio/
-├── README.md
 ├── 01-networking/
 ├── 02-linux-windows/
 ├── 03-siem-investigation/
 ├── 04-phishing-analysis/
 ├── 05-vulnerability-assessment/
 ├── 06-incident-response/
-└── 07-screenshots/
+├── 07-screenshots/
+├── projects/
+├── ROADMAP.md
+├── LEGAL_DISCLAIMER.md
+├── LICENSE
+└── README.md
+```
 
-## Legal Disclaimer
+## Progress
 
-All labs, scans and investigations in this repository are performed only on legal platforms, personal lab machines or authorised training environments. I do not scan, test or attack any live system without written permission.
+### Day 1  Portfolio Setup
 
-## Current Goal
+- Created the repository and initial folder plan
+- Added a legal disclaimer and licence
 
-My current goal is to build visible proof of practical cybersecurity learning for entry-level SOC Analyst roles.
+### Day 2  Networking Fundamentals
 
-## Progress Log
-
-### Day 1 – Portfolio Setup
-- Created SOC Analyst portfolio repository
-- Added folder structure
-- Added legal disclaimer and license
-
-### Day 2 – Networking Basics
-- Studied IP address, MAC address, DNS, DHCP, TCP, UDP, HTTP and HTTPS
-- Learned common SOC-related ports
+- Studied IP addresses, MAC addresses, DNS, DHCP, TCP, UDP, HTTP and HTTPS
+- Documented common ports and their relevance to SOC investigations
 - Practised basic networking commands
-- Created networking notes for SOC Analyst Level 1 preparation
 
-### Day 3 – Networking Command Practice
-- Practised `ipconfig`, `ping`, `nslookup`, `tracert` and `netstat -ano`
-- Performed a safe Nmap service scan on `scanme.nmap.org`
-- Added screenshots as practical evidence
-- Created SOC-focused networking command notes
+### Day 3  Networking Command Practice
+
+- Practised **ping**, **nslookup**, **traceroute** and **netstat** in Kali Linux
+- Performed network command exercises and collected screenshot evidence
+- Documented how the commands support an investigation
+- Removed evidence that exposed a household subnet and scheduled a clean authorised Nmap exercise
+
+See [ROADMAP.md](ROADMAP.md) for the complete development sequence and current status.
+
+## Ethical Use
+
+All security work in this repository must be performed only on systems I own, isolated lab machines, authorised training platforms or targets for which clear permission has been granted. See [LEGAL_DISCLAIMER.md](LEGAL_DISCLAIMER.md).
+
+## Author
+
+**Ritik Chauhan**
+
+[GitHub profile](https://github.com/ritik19coder)
