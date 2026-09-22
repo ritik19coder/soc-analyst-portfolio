@@ -1,252 +1,112 @@
-# Day 3 – Networking Command Practice for SOC Analysts
+# Day 3 Networking Command Practice for SOC Analysts
 
 ## Objective
 
-The objective of Day 3 was to practise basic networking commands that are useful for SOC Analyst Level 1 investigations. These commands help collect information about IP configuration, connectivity, DNS resolution, network routes, active connections and basic service discovery.
+The objective of this exercise was to practise basic networking commands used during entry-level security investigations. The commands help an analyst confirm connectivity, resolve domains, trace network paths and review active connections.
 
-On Day 2, I studied networking theory. Today, I focused more on practical command usage and screenshot evidence.
+## Environment and Scope
 
----
-
-## Why Command Practice is Important for SOC Analysts
-
-SOC analysts often investigate alerts that include IP addresses, domains, ports, protocols and host details. Basic networking commands help analysts understand whether a system is connected, which DNS records are being resolved, what route traffic is taking and whether there are active network connections.
-
-These commands are useful during:
-
-* Initial alert investigation
-* Network troubleshooting
-* Suspicious domain analysis
-* Failed login investigation
-* Malware communication checks
-* Basic host investigation
-* Evidence collection for reports
-
----
+- Environment: Kali Linux lab machine
+- Activity: Basic network troubleshooting and evidence collection
+- Scope: Benign commands and public services only
+- Privacy rule: Local gateway details, household-network scans and unnecessary device information are excluded from the public portfolio
 
 ## Commands Practised
 
-## 1. ipconfig
+### Ping
 
-### Command Used
-
-```powershell
-ipconfig
-```
-
-### Purpose
-
-The `ipconfig` command shows the IP configuration of a Windows system. It displays details such as the IPv4 address, subnet mask, default gateway and network adapter information.
-
-### SOC Analyst Use
-
-A SOC analyst can use this command to identify the local IP address of a system during investigation. This is useful when checking whether an alert is related to the correct host or network segment.
-
-### Evidence
-
-Screenshot saved as:
-
-```text
-07-screenshots/day-3-ipconfig.png
-```
-
----
-
-## 2. ping
-
-### Command Used
-
-```powershell
+~~~bash
 ping google.com
-```
+~~~
 
-### Purpose
+**ping** sends ICMP echo requests to test whether a destination responds and to measure approximate round-trip time.
 
-The `ping` command checks whether a system can reach another host over the network. It sends ICMP packets and shows whether replies are received.
+**SOC relevance:** It can support initial connectivity checks, although a failed response does not prove that a host is offline because ICMP may be blocked.
 
-### SOC Analyst Use
+**Evidence:** [Ping output](../07-screenshots/day-3-ping.png)
 
-This command can help confirm basic network connectivity. During investigation, it may be used to check whether a host can reach a domain or IP address. However, some systems block ICMP, so no reply does not always mean the host is offline.
+### Nslookup
 
-### Evidence
-
-Screenshot saved as:
-
-```text
-07-screenshots/day-3-ping.png
-```
-
----
-
-## 3. nslookup
-
-### Command Used
-
-```powershell
+~~~bash
 nslookup google.com
-```
+~~~
 
-### Purpose
+**nslookup** queries DNS and shows the addresses returned for a domain.
 
-The `nslookup` command is used to query DNS records. It shows which IP address is linked to a domain name.
+**SOC relevance:** DNS data can help an analyst investigate suspicious domains, phishing infrastructure and possible command-and-control activity. A DNS result alone does not establish that a domain is malicious.
 
-### SOC Analyst Use
+**Evidence:** [DNS lookup output](../07-screenshots/day-3-nslookup.png)
 
-DNS investigation is important in SOC work because phishing websites, malware and command-and-control infrastructure often use suspicious domains. SOC analysts can use DNS information to understand where a domain resolves and whether it may be suspicious.
+### Traceroute
 
-### Evidence
+~~~bash
+traceroute google.com
+~~~
 
-Screenshot saved as:
+**traceroute** displays the network hops observed between the source system and a destination.
 
-```text
-07-screenshots/day-3-nslookup.png
-```
+**SOC relevance:** It can support route and connectivity troubleshooting. Missing hops may occur when intermediate devices do not return responses.
 
----
+The local first-hop gateway has been redacted from the public screenshot.
 
-## 4. tracert
+**Evidence:** [Traceroute output](../07-screenshots/day-3-traceroute.png)
 
-### Command Used
+### Traceroute Help
 
-```powershell
-tracert google.com
-```
+~~~bash
+traceroute
+~~~
 
-### Purpose
+Running the command without the required destination displays its usage and available options. Reviewing built-in help is a useful way to verify syntax before collecting evidence.
 
-The `tracert` command shows the path that packets take from the local system to a destination. It displays each hop between the source and destination.
+**Evidence:** [Traceroute command help](../07-screenshots/day-3-traceroute-help.png)
 
-### SOC Analyst Use
+### Netstat
 
-This command can help analysts understand the route traffic is taking. It can also be useful during network troubleshooting or when investigating connectivity issues.
+~~~bash
+netstat
+~~~
 
-### Evidence
+**netstat** displays active network connections. Depending on the options and permissions used, it can also display listening services, addresses, ports and process information.
 
-Screenshot saved as:
+**SOC relevance:** Active connections can provide an initial lead during host investigation, but they must be correlated with process, user, time and destination evidence. On modern Linux systems, **ss** is commonly used as an alternative.
 
-```text
-07-screenshots/day-3-tracert.png
-```
+**Evidence:** [Netstat output](../07-screenshots/day-3-netstat.png)
 
----
+## Nmap Evidence Status
 
-## 5. netstat
+An earlier screenshot displayed a scan of a private household subnet and did not match the public target described in the original note. It has been excluded from the proposed portfolio update.
 
-### Command Used
+A new Nmap exercise will be completed later against an isolated lab system or another target that explicitly permits scanning. The final evidence will document the authorised target, command, result, interpretation and limitations.
 
-```powershell
-netstat -ano
-```
-
-### Purpose
-
-The `netstat -ano` command shows active network connections, listening ports and process IDs on a Windows system.
-
-### SOC Analyst Use
-
-This command is useful for identifying unusual connections or unexpected listening ports. A SOC analyst can use the process ID shown in the output to investigate which process is responsible for a connection.
-
-### Evidence
-
-Screenshot saved as:
-
-```text
-07-screenshots/day-3-netstat.png
-```
-
----
-
-## 6. Nmap Safe Scan
-
-### Command Used
-
-```powershell
-nmap -sV scanme.nmap.org
-```
-
-### Purpose
-
-The `nmap -sV` command checks open ports and attempts to detect service versions. For this task, I used `scanme.nmap.org`, which is provided by Nmap for legal testing and learning purposes.
-
-### SOC Analyst Use
-
-Nmap helps understand open ports and services on a target. For SOC analysts, this knowledge is useful because open services can increase attack surface and may appear in vulnerability assessment or incident investigation reports.
-
-### Evidence
-
-Screenshot saved as:
-
-```text
-07-screenshots/day-3-nmap-scan.png
-```
-
----
-
-## Practical Learning Summary
-
-Today I practised important networking commands used in basic security investigation. I learned how to check IP configuration, test connectivity, resolve domains, trace network routes, view active connections and perform a safe Nmap service scan.
-
-The most useful command from a SOC perspective was `netstat -ano` because it shows active connections and process IDs. This can help during suspicious connection investigation. The `nslookup` command was also useful because DNS investigation is common in phishing and malware analysis.
-
----
-
-## SOC Investigation Example
+## Example Investigation Use
 
 Example alert:
 
-```text
-Suspicious outbound connection detected from internal host to unknown external IP.
-```
+~~~text
+Suspicious outbound connection detected from an internal host to an unfamiliar destination.
+~~~
 
-As a SOC analyst, I could use the following process:
+An entry-level investigation could include:
 
-1. Use `ipconfig` to confirm the local host IP address.
-2. Use `netstat -ano` to check active connections and identify the related process ID.
-3. Use `nslookup` to investigate any suspicious domain involved.
-4. Use `tracert` to understand the network route.
-5. Review screenshots and command outputs as evidence.
-6. Document findings in an investigation report.
+1. Confirm the affected host and its assigned network details.
+2. Review active connections and identify the related process where possible.
+3. Resolve any associated domain and record the returned DNS information.
+4. Compare the destination, time and user activity with expected behaviour.
+5. Preserve relevant evidence and document any uncertainty.
+6. Escalate when the evidence indicates malicious activity or the scope remains unclear.
 
-This shows how basic networking commands can support a real SOC investigation.
+These commands support initial triage, but they do not replace SIEM, EDR, firewall, DNS or proxy-log evidence.
 
----
+## Skills Demonstrated
 
-## Screenshots Collected
+- Basic Linux network troubleshooting
+- DNS resolution checks
+- Connectivity and route analysis
+- Active-connection review
+- Evidence collection and redaction
+- Ethical documentation of lab activity
 
-The following screenshots were collected as evidence:
+## Learning Summary
 
-```text
-day-3-ipconfig.png
-day-3-ping.png
-day-3-nslookup.png
-day-3-tracert.png
-day-3-netstat.png
-day-3-nmap-scan.png
-```
-
-Screenshots are stored in the `07-screenshots` folder.
-
----
-
-## Key Skills Practised
-
-* Windows networking command usage
-* DNS lookup
-* Connectivity testing
-* Route tracing
-* Active connection checking
-* Basic Nmap service scanning
-* SOC-style evidence collection
-* Markdown documentation for GitHub
-
----
-
-## Diary Reflection
-
-Today I completed Day 3 of my SOC Analyst Level 1 preparation plan. I focused on practical networking command usage and collected screenshots as evidence. I practised commands such as `ipconfig`, `ping`, `nslookup`, `tracert`, `netstat -ano` and a safe Nmap scan on `scanme.nmap.org`.
-
-This task helped me understand how networking commands support SOC investigations. I also learned how to document command usage in a professional way for my GitHub portfolio.
-
----
-
-##
+This exercise connected basic networking commands with SOC investigation tasks. The most important lesson was that command output needs context: a reachable host is not automatically trustworthy, an unfamiliar connection is not automatically malicious and a DNS result must be validated against other evidence.
