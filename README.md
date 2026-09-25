@@ -12,6 +12,7 @@ The portfolio is being developed one task at a time. Planned work is labelled cl
 
 | Area | Evidence | Status |
 | --- | --- | --- |
+| Development environment | [Git and VS Code setup](00-environment-setup/README.md) | Completed |
 | Networking fundamentals | [Networking basics for SOC analysts](01-networking/networking-basics-for-soc.md) | Completed |
 | Networking commands | [Networking command practice](01-networking/networking-command-practice.md) | Completed - Nmap evidence planned separately |
 | Linux and Windows security | [Section overview](02-linux-windows/README.md) | Planned |
@@ -35,6 +36,7 @@ The portfolio is being developed one task at a time. Planned work is labelled cl
 
 ```text
 soc-analyst-portfolio/
+├── 00-environment-setup/
 ├── 01-networking/
 ├── 02-linux-windows/
 ├── 03-siem-investigation/
@@ -68,6 +70,14 @@ soc-analyst-portfolio/
 - Performed network command exercises and collected screenshot evidence
 - Documented how the commands support an investigation
 - Removed evidence that exposed a household subnet and scheduled a clean authorised Nmap exercise
+
+### Task 2  Git and VS Code Environment
+
+- Verified Git and Visual Studio Code on Windows 11
+- Protected the Git author email with GitHub's private no-reply address
+- Cloned and validated the portfolio repository over HTTPS
+- Resolved a Windows TLS backend error without disabling certificate checks
+- Prepared Markdown, Git and Python support in Visual Studio Code
 
 See [ROADMAP.md](ROADMAP.md) for the complete development sequence and current status.
 

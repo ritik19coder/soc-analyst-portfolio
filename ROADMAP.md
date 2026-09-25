@@ -5,7 +5,7 @@ This roadmap tracks the practical work behind the portfolio. A task is marked co
 ## Foundation
 
 - [x] Task 1  Organise the master cybersecurity portfolio
-- [ ] Task 2  Prepare Git and VS Code on the laptop
+- [x] Task 2  Prepare Git and VS Code on the laptop
 - [ ] Task 3  Document the MSc cybersecurity journey
 - [ ] Task 4  Complete a Linux fundamentals lab
 
@@ -52,4 +52,4 @@ This roadmap tracks the practical work behind the portfolio. A task is marked co
 
 ## Current Task
 
-Task 1 is complete and published on the main branch. Task 2 is next and will begin only after approval.
+Task 2 is complete and documented. Task 3 is next and will begin only after approval.
